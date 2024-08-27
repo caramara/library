@@ -49,10 +49,10 @@ function addBookToLibrary(){
 
 }
 
-function generateTable() {
+  function generateTable() {
     tableBody.innerHTML = ""; // Clear the table body
     myLibrary.forEach((book, index) => {
-      //Create new table row and cells to contain all the book information
+    //Create new table row and cells to contain all the book information
       const row = document.createElement("tr");
       const titleCell = document.createElement("td");
       const authorCell = document.createElement("td");
@@ -61,43 +61,6 @@ function generateTable() {
       const deleteCell = document.createElement("td");
         
       //Extract the book information from the book object and add it to the table cells
-      titleCell.textContent = book.title;
-      authorCell.textContent = book.author;
-      pagesCell.textContent = book.pages;
-      readCell.textContent = book.read ? "Yes" : "No";
-  
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.classList.add("delete-btn");
-      deleteButton.addEventListener("click", () => {
-        myLibrary.splice(index, 1);
-        console.table(myLibrary);
-        generateTable(); // Regenerate the table after deletion
-      });
-      
-      //Append the table cells to the table row, and table row to table body
-      deleteCell.appendChild(deleteButton);
-  
-      row.appendChild(titleCell);
-      row.appendChild(authorCell);
-      row.appendChild(pagesCell);
-      row.appendChild(readCell);
-      row.appendChild(deleteCell);
-  
-      tableBody.appendChild(row);
-    });
-  }
-
-  function generateTable() {
-    tableBody.innerHTML = ""; // Clear the table body
-    myLibrary.forEach((book, index) => {
-      const row = document.createElement("tr");
-      const titleCell = document.createElement("td");
-      const authorCell = document.createElement("td");
-      const pagesCell = document.createElement("td");
-      const readCell = document.createElement("td");
-      const deleteCell = document.createElement("td");
-  
       titleCell.textContent = book.title;
       authorCell.textContent = book.author;
       pagesCell.textContent = book.pages;
@@ -112,6 +75,7 @@ function generateTable() {
         console.table(myLibrary);
       });
   
+      //Append the table cells to the table row, and table row to table body
       deleteCell.appendChild(deleteBtn);
   
       row.appendChild(titleCell);
