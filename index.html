@@ -8,8 +8,9 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="container">
-        <div class="side-bar">
+    <div id="container">
+        <div id="side-bar" class="hidden">
+            <button type="button" id="close-btn">X</button>
             <form>
                 <fieldset class="add-book">
                     <legend>Book Information</legend>
@@ -32,17 +33,18 @@
                     <input type="checkbox" name="read" id="read">
                     <label for="read">Read</label>
                 </fieldset>
-                <button type="button">Add</button>
+                <button type="button" id="add-book-btn">Add</button>
             </form>
         </div>
-        <div class="header">
+        <div id="header">
             <input type="search" placeholder="Search books">
             <div class="profile">
                 <div class="profile-pic"></div>
                 <div class="profile-name">Caramara</div>
             </div>
         </div>
-        <div class="main-content">
+        <div id="main-content">
+            <button type="button" id="show-sidebar-btn">Add Book</button>
             <table>
                 <caption>My Library</caption>
                 <thead>
@@ -50,6 +52,7 @@
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Read</th>
+                    <th>Action</th>
                 </thead>
                 <tbody></tbody>
             </table>

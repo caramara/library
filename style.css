@@ -30,7 +30,14 @@ img {
   display: block;
   max-inline-size: 100%;
 }
-
+button{
+    border: none;
+    padding: 7px 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
 input{
     padding: 8px;
     border-radius: 15px;
@@ -39,7 +46,7 @@ input{
 input:focus{
     outline: 3px solid hsl(261, 63%, 70%);
 }
-.container{
+#container{
     display: grid;
     margin: 0;
     padding: 0;
@@ -48,7 +55,7 @@ input:focus{
     width: 100vw;
     font-family: 'Roboto', sans-serif;
 }
-.side-bar{
+#side-bar{
     background-color: hsl(253, 50%, 50%);
     color: hsl(263, 94%, 27%);
     padding: 20px;
@@ -58,12 +65,16 @@ input:focus{
     align-items: center;
     font-size: 1.2rem;
 }
-.side-bar form{
+#side-bar button{
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+#side-bar form{
     background-color: hsl(250, 57%, 82%);
     border-radius: 10px;
     padding: 20px;
 }
-.side-bar fieldset{
+#side-bar fieldset{
     border: none;
     display: flex;
     flex-direction: column;
@@ -71,35 +82,29 @@ input:focus{
     padding: 0;
     margin-bottom: 15px;
 }
-.side-bar legend{
+#side-bar legend{
     font-weight: 600;
 }
-.side-bar li{
+#side-bar li{
     margin-top: 15px;
     display: flex;
     flex-direction: column;
 }
-.side-bar fieldset.read-status{
+#side-bar fieldset.read-status{
     display: flex;
     flex-direction: row;
     align-items: baseline;
     margin: 0 5px 0 0;
     font-size: 1rem;
 }
-.side-bar button{
+#side-bar button{
     background-color: hsl(32, 64%, 70%);
     color: hsl(263, 94%, 27%);
-    border: none;
-    padding: 7px 15px;
-    font-weight: 600;
-    border-radius: 10px;
-    margin-top: 10px;
-    cursor: pointer;
 }
-.side-bar button:hover{
+#side-bar button:hover{
     outline: solid 2px hsl(263, 94%, 27%);
 }
-.header{
+#header{
     background-color: hsl(32, 64%, 70%);
     padding: 20px;
     grid-column: 2/-1;
@@ -108,18 +113,30 @@ input:focus{
     align-items: center;
     color: hsl(263, 20%, 42%);
     font-weight: 600;
+    display: relative;
+    z-index: 1;
+    box-shadow: 1px 3px 3px hsl(0, 0%, 0%, 0.20);
 }
-.header input[type=search]{
+#header input[type=search]{
     width: 50%;
 }
 
-.main-content{
+#main-content{
     background-color: hsl(250, 57%, 82%);
     color: hsl(263, 94%, 27%);
     padding: 20px;
     grid-column: 2/-1;
 }
-.main-content table{
+#main-content #show-sidebar-btn{
+    background-color: hsl(263, 94%, 27%);
+    color: hsl(32, 64%, 70%);
+    height: 3rem;
+    font-size: 1.2rem;
+}
+#main-content #show-sidebar-btn:hover{
+    outline: solid 2px hsl(32, 64%, 70%);
+}
+#main-content table{
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
@@ -127,12 +144,28 @@ input:focus{
     border-radius: 10px;
     text-align: center;
 }
-.main-content table caption{
+#main-content table caption{
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.main-content tr:nth-child(even){
+#main-content table thead{
+    background-color: hsl(253, 50%, 50%);
+    color: hsl(249, 62%, 92%);
+}
+#main-content table button{
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: inherit;
+    color: hsl(263, 94%, 27%);
+    border: 2px solid hsl(263, 94%, 27%);
+    padding: 5px 10px;
+    font-weight: 500;
+}
+#main-content table button:hover{
+    background-color: hsl(32, 64%, 70%);
+}
+#main-content tr:nth-child(even){
     background-color: hsl(249, 62%, 92%);
 }
 thead th:nth-child(1) {
@@ -144,14 +177,27 @@ thead th:nth-child(1) {
   }
   
   thead th:nth-child(3) {
-    width: 25%;
+    width: 15%;
   }
   
   thead th:nth-child(4) {
     width: 15%;
   }
   
+  thead th:nth-child(5) {
+    width: 10%;
+  }
+  
   th,
   td {
     padding: 20px;
   }
+#side-bar.hidden{
+    display:none;
+}
+.hidden ~ #header{
+    grid-column: 1/-1;
+ }
+.hidden ~ #main-content{
+    grid-column: 1/-1;
+}
